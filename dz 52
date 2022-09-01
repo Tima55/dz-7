@@ -35,7 +35,6 @@ void AverageArray(double[,] matr)
             count++;
         }
         average= summ/count;
-        //Console.WriteLine($"{j+1}-го столбца = {average} ");
         Console.Write($"{average}\t");
     }
 }
