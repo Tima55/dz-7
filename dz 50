@@ -1,0 +1,48 @@
+// Задача 50: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Write("Задайте высоту массива = ");
+int i = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Задайте длинну массива = ");
+int j = int.Parse(Console.ReadLine() ?? "0");
+
+
+int[,] matrix = new int[i, j];
+
+FillArray(matrix);
+PrintArray(matrix);
+
+Console.Write("Задайте I позицию элемента = ");
+int numberI = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Задайте J позицию элемента = ");
+int numberJ = int.Parse(Console.ReadLine() ?? "0");
+
+if(numberI>=i || numberJ>=j)
+{
+    Console.Write($"Значение элемента выходят за размер матрицы");
+    return;
+}
+
+Console.Write($"Значение элемента ({numberI},{numberJ}) = {matrix[numberI,numberJ]}");
